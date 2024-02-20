@@ -1,9 +1,10 @@
 var createError = require('http-errors');
 var express = require('express');
+require('dotenv').config()
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB = "";
+const mongoDB = process.env.MONGO_SECRET;
 
 main().catch((err) => console.log(err));
 async function main() {
