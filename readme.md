@@ -1,4 +1,4 @@
-# Project Title
+# Instruments
 
 ## Introduction
 
