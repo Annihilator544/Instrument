@@ -1,0 +1,18 @@
+extends layout 
+
+block content
+    h1 Title: #{title}
+
+    hr
+    
+    h5 #[strong Company:] 
+        a(href=instrument.company.url) #{instrument.company.name}
+
+    h5 #[strong Classification:]
+        a(href=instrument.classification.url) #{instrument.classification.name}
+
+    h5 #[strong Price:] #{instrument.price}
+
+    h5 #[strong Stock:] #{instrument.stock}
+    p
+    a(href=instrument.url+'/delete') Delete instrument

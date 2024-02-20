@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{classification.name}
+
+  if instruments_of_classification.length
+
+    p #[strong Delete the following instruments before attempting to delete this classification.]
+    div(style='margin-left:20px;margin-top:20px')
+      h4 Instruments by #{classification.name}:
+      dl
+        each book in instruments_of_classification
+          dt
+            a(href=book.url) #{book.name}
+          dd #{book.stock}
+
+  else
+    p Do you really want to delete this classification?
+
+    form(method='POST')
+      div.form-group
+        input#classificationid.form-control(type='hidden', name='classificationid', value=classification._id )
+
+      button.btn.btn-primary(type='submit') Delete

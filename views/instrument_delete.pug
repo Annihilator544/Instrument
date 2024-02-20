@@ -1,0 +1,13 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{instrument.name}
+  hr
+  p Do you really want to delete this instrument of classification #{instrument.classification.name} and company #{instrument.company.name}?
+
+    form(method='POST')
+      div.form-group
+        input#instrumentid.form-control(type='hidden', name='instrumentid', value=instrument._id )
+
+      button.btn.btn-primary(type='submit') Delete

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST')
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text', placeholder='Name Of The Company (Gibson)' name='name' required value=(undefined===company ? '' : company.name) )
+      label(for='address') Address:
+      input#address.form-control(type='text', placeholder='Address Of The Company ' name='address' required value=(undefined===company ? '' : company.address))
+    div.form-group
+      label(for='phone') Phone Number:
+      input#phone.form-control(type='number', placeholder='Contact Details' name='phone' value=(undefined===company ? '' : company.phone) )
+      label(for='email') Email Address:
+      input#email.form-control(type='text' name='email' value=(undefined===company ? '' : company.email) )
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

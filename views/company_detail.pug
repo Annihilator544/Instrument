@@ -1,0 +1,23 @@
+extends layout 
+
+block content
+    h1(style="padding-bottom:20px;") Company Name: #{title}
+    h3(style="padding-bottom:10px;") #{company.address}
+    h3(style="padding-bottom:10px;") #{company.phone}
+    h3(style="padding-bottom:10px;") #{company.email}
+    hr
+    h5(style="padding-bottom:10px;") #[strong Instruments by #{company.name} :]
+    p Total instruments: #{instruments_of_company.length}  
+    p
+    a(href=company.url+'/update') Update Company
+    p
+    a(href=company.url+'/delete') Delete Company
+    p  
+    table.table.table-hover 
+                tbody
+                    each classification in instruments_of_company
+                        tr
+                            td  
+                                a(href=classification.url) #{classification.name}
+
+    

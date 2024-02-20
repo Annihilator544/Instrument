@@ -1,0 +1,18 @@
+extends layout 
+
+block content
+    h1 #{classification.name}
+    p #{classification.description}
+    p #{instruments_of_classification .length} instruments in this classification
+    p
+    a(href=classification.url+'/delete') Delete classification
+    p
+    a(href=classification.url+'/update') Edit classification
+    hr
+    table.table.table-hover 
+        tbody
+            each instrument in instruments_of_classification 
+                tr
+                    td 
+                        a(href=instrument.url) #{instrument.name}
+    

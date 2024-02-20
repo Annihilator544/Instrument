@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    h1 #{title}
+    table.table.table-hover
+        thead.thead-dark
+        tr
+            th(scope='col') Name
+            th(scope='col') Classification
+            th(scope='col') Company
+            th(scope='col') Price
+            th(scope='col') Actions
+        tbody
+        each instrument in list_instruments
+            tr
+            td
+                a(href=instrument.url) #{instrument.name}
+            td 
+                a(href=instrument.classification.url) #{instrument.classification.name}
+            td 
+                a(href=instrument.company.url) #{instrument.company.name}
+            td #{instrument.price}
+                td(style='display:flex; flex-direction:row; justify-content:space-around; align-items:center;')
+                    a.btn.btn-warning(href='/catalog/instrument/' + instrument._id + '/update') Update
+                    a.btn.btn-danger(href='/catalog/instrument/' + instrument._id + '/delete') Delete
+            

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the Instrument Catalog
+  h1 Dynamic Content
+  p This is a dynamic site that allows you to add, update, and delete instruments, companies, and classifications.
+  ul 
+    li #[strong Total Instruments:] #{instrument_count}
+    li #[strong Total Classifications:] #{classification_count}
+    li #[strong Total Companies:] #{company_count}

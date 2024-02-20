@@ -1,0 +1,11 @@
+extends layout 
+
+block content
+    h1 #{title}
+    table.table.table-hover 
+        tbody
+            each classification in list_classifications
+                tr
+                    td  
+                        a(href=classification.url) #{classification.name}
+            
