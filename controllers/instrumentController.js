@@ -33,6 +33,7 @@ exports.instrument_create_get = asyncHandler(async (req, res, next) => {
 // Handle Instrument create on POST.
 exports.instrument_create_post = asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
+    console.log(req.body);
     const instrument = new Instrument(
         {
             name: req.body?.name,
@@ -42,8 +43,6 @@ exports.instrument_create_post = asyncHandler(async (req, res, next) => {
             stock: req.body?.stock,
         }
     );
-    instrument.save();
-    console.log(instrument);
     if(!errors.isEmpty()){
         const classifications = await Classification.find().sort({ name: 1 });
         const companies = await Company.find().sort({ name: 1 });
@@ -56,7 +55,10 @@ exports.instrument_create_post = asyncHandler(async (req, res, next) => {
         });
         return;
     }
-    res.redirect(instrument.url);
+    else{
+        await instrument.save();
+        res.redirect(instrument.url);
+    }
 });
 
 // Display Instrument delete form on GET.

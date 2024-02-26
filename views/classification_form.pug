@@ -6,7 +6,7 @@ block content
 
   form(method='POST')
     div.form-group
-      label(for='name') Genre:
+      label(for='name') Classification Name:
       input#name.form-control(type='text', placeholder='strings, wind etc.' name='name' required value=(undefined===classification ? '' : classification.name) )
     button.btn.btn-primary(type='submit') Submit
 
