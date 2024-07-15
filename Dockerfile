@@ -3,4 +3,4 @@ WORKDIR /instrument
 COPY . /instrument
 RUN npm install
 EXPOSE 4444
-CMD npm start
+CMD npm start $MONGO_SECRET
