@@ -8,7 +8,7 @@ const userArgs = process.argv.slice(2);
     }
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB = process.env.MONGO_SECRET;
+const mongoDB = userArgs[0];
 
 main().catch((err) => console.log(err));
 async function main() {
